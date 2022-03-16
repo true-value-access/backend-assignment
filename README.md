@@ -157,7 +157,7 @@ Application should have the following endpoints:
 - [ ] Repo should not contain irrelevant folders/files like cache files, build/dist directories etc.
 - [ ] Create API documentation using Swagger or similar framework
 - [ ] Follow these steps for submission:
-  1. Clone the repository
+  1. Fork the repository
   1. Create issues and work on them in their respective branches
   1. Complete the tasks while following all instructions
   1. Create MRs and merge into main branch
