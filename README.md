@@ -154,7 +154,8 @@ Application should have the following endpoints:
 ## **Instructions**
 
 - [ ] README.md should have all the details and instructions like how to setup and run the project
-- [ ] repo should not contain irrelevant folders/files like cache files, build/dist directories etc.
+- [ ] Repo should not contain irrelevant folders/files like cache files, build/dist directories etc.
+- [ ] Create API documentation using Swagger or similar framework
 - [ ] Follow these steps for submission:
   1. Clone the repository
   1. Create issues and work on them in their respective branches
@@ -163,5 +164,5 @@ Application should have the following endpoints:
   1. When done, Test if all task requirements are met and instructions followed
   1. Push code to github
   1. Deploy/Host your solution
-  1. Reply to the same email with the **repo URL** and **hosted URL**
+  1. Reply to the same email with the URLs for **repo**, **hosted API** and **hosted documentation** 
 - For any queries please email us at [hiring@truevalueaccess.com](mailto:hiring@truevalueaccess.com)
