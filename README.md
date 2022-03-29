@@ -1,155 +1,43 @@
 # Backend Assignment
+A django rest framework based web api's application that will be used by our candidates to implement interview assignment.
 
-Create REST APIs using Python (Flask, Django, any other web framework of your choice) for managing the user’s data.  
-You can use database(i.e SQL, NOSQL) of your choice to store the data.  
-Take sample data from [here](https://datapeace-storage.s3-us-west-2.amazonaws.com/dummy_data/users.json).
+## Dependencies
+This project relies mainly on Django. Mainly:
+  - Python 3.8+
+  - Django 3+ or 4+
+  - Django Rest Framwork
 
-It should have following functionalities:
+## Requirements:
+  - Candidates expected to implement required features for a library management system based on provided scenario
+  - Candidates have to implement web REST api's for each required action related to scenario
+  - Proper [JWT][1] based authentication should be implemented in each protected web apis
+  - Ensure an user can only perform actions using apis which are allowed to the role assigned to that user
 
-- list users (`/api/users GET`)
-- search for a user by name
-- sort list by field name
-- pagination of users list
-- create new user (`/api/users - POST`)
-- get detail of a user (`/api/users/<id> - GET`)
-- update details of a user (`/api/users - PUT`)
-- delete a user (`/api/users - DELETE`)
+### Scenario
+The are two roles in the system; `LIBRARIAN` and `MEMBER`
 
-_Attention to detail and meeting all requirements is important in the project. Completing it in less time will not give you any preference._
+### As a User
+  - I can signup either as `LIBRARIAN` and `MEMBER` using username and password
+  - I can login using username and password
 
-## **Task Overview**
+#### As a Librarian
+  - I can add, update, and remove Books from the system
+  - I can add, update, view, and remove Member from the system
+  
+#### As a Member
+  - I can view, borrow, and return available Books
+  - Once a book is borrowed, its status will change to `BORROWED`
+  - Once a book is returned, its status will change to `AVAILABLE`
+  - I can delete my own account
 
-User should have the following attributes:-
-
-```
-ID
-First Name
-Last Name
-Company Name
-Age
-City
-State
-Zip
-Email
-Web
-```
-
-Application should have the following endpoints:
-
-- `/api/users - GET` - To list the users
-
-  - Response with HTTP status code 200 on success
-
-    ```json
-    [
-      {
-        "id": 1,
-        "first_name": "James",
-        "last_name": "Butt",
-        "company_name": "Benton, John B Jr",
-        "city": "New Orleans",
-        "state": "LA",
-        "zip": 70116,
-        "email": "jbutt@gmail.com",
-        "web": "http://www.bentonjohnbjr.com",
-        "age": 70
-      },
-      {
-        "id": 2,
-        "first_name": "Josephine",
-        "last_name": "Darakjy",
-        "company_name": "Chanay, Jeffrey A Esq",
-        "city": "Brighton",
-        "state": "MI",
-        "zip": 48116,
-        "email": "josephine_darakjy@darakjy.org",
-        "web": "http://www.chanayjeffreyaesq.com",
-        "age": 48
-      }
-    ]
-    ```
-
-  - Also, supports some query parameters:
-  - page - a number for pagination
-  - limit - no. of items to be returned, default limit is 5
-  - name - search user by name as a substring in First Name or Last Name (Note, use substring matching algorithm/pattern to match the name). It should be case-insensitive.
-  - Sort - name of attribute, the items to be sorted. By default it returns items in ascending order if this parameter exist, and if the value of parameter is prefixed with ‘-’ character, then it should return items in descending order
-
-  Sample query endpoint:- `/api/users?page=1&limit=10&name=James&sort=-age` This endpoint should return list of 10 users whose first name or last name contains substring given name and sort the users by age in descending order of page 1.
-
-- `/api/users - POST` - To create a new user
-
-  - Request Payload should be like in json format :-
-
-    ```json
-    {
-      "id": 2,
-      "first_name": "Josephine",
-      "last_name": "Darakjy",
-      "company_name": "Chanay, Jeffrey A Esq",
-      "city": "Brighton",
-      "state": "MI",
-      "zip": 48116,
-      "email": "josephine_darakjy@darakjy.org",
-      "web": "http://www.chanayjeffreyaesq.com",
-      "age": 48
-    }
-    ```
-
-  - Response with HTTP status code 201 on success
-    ```json
-    {}
-    ```
-  - This endpoint will create a new user inside the database
-
-- `/api/users/{id} - GET` - To get the details of a user
-
-  1. Here {id} will be the id of the user in path parameter
-  1. Response with HTTP status code 200 on success
-
-  ```json
-  {
-    "id": 1,
-    "first_name": "James",
-    "last_name": "Butt",
-    "company_name": "Benton, John B Jr",
-    "city": "New Orleans",
-    "state": "LA",
-    "zip": 70116,
-    "email": "jbutt@gmail.com",
-    "web": "http://www.bentonjohnbjr.com",
-    "age": 70
-  }
-  ```
-
-  Sample query looks like:- `/api/users/1 GET`
-
-- `/api/users/{id} PUT` - To update the details of a user
-
-  - Here {id} will be the id of the user in path parameter
-  - Request Payload should be like in json format for updating first name, last name and age:-
-    ```json
-    {
-      "first_name": "Josephine",
-      "last_name": "Darakjy",
-      "age": 48
-    }
-    ```
-  - Response with HTTP status code 200 on success
-    {}
-
-- `/api/users/{id} DELETE` - To delete the user
-
-  - Here {id} will be the id of the user in path parameter
-  - Response with HTTP status code 200 on success
-
-    ```json
-    {}
-    ```
-
-## Resources:
-
-- For sample data [https://datapeace-storage.s3-us-west-2.amazonaws.com/dummy_data/users.json](https://datapeace-storage.s3-us-west-2.amazonaws.com/dummy_data/users.json)
+## Nice to Have:
+It will be an advantage for candidates to demonstrate the following:
+  - Proper usage of Http Methods and REST practices
+  - Understanding of [SOLID Principle][2]
+  - Understanding of Design patterns
+  - Understanding of TDD and BDD
+  - Each implementation should be equipped with unit tests
+  - Integration tests are require to demonstrate API usages
 
 ## **Instructions**
 
@@ -166,3 +54,6 @@ Application should have the following endpoints:
   1. Deploy/Host your solution
   1. Reply to the same email with the URLs for **repo**, **hosted API** and **hosted documentation** 
 - For any queries please email us at [hiring@truevalueaccess.com](mailto:hiring@truevalueaccess.com)
+
+[1]: https://jwt.io/introduction
+[2]: https://en.wikipedia.org/wiki/SOLID
