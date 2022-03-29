@@ -5,20 +5,21 @@ A django rest framework based web api's application that will be used by our can
 This project relies mainly on Django. Mainly:
   - Python 3.8+
   - Django 3+ or 4+
-  - Django Rest Framwork
+  - Django Rest Framework
 
 ## Requirements:
   - Candidates expected to implement required features for a library management system based on provided scenario
   - Candidates have to implement web REST api's for each required action related to scenario
-  - Proper [JWT][1] based authentication should be implemented in each protected web apis
+  - Proper [JWT][1] based authentication should be implemented in each protected web api endpoint
   - Ensure an user can only perform actions using apis which are allowed to the role assigned to that user
+
 
 ### Scenario
 The are two roles in the system; `LIBRARIAN` and `MEMBER`
 
 ### As a User
   - I can signup either as `LIBRARIAN` and `MEMBER` using username and password
-  - I can login using username and password
+  - I can login using username/password and get JWT access token
 
 #### As a Librarian
   - I can add, update, and remove Books from the system
